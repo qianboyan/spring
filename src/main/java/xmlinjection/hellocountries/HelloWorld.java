@@ -1,4 +1,4 @@
-package xmlinjection;
+package xmlinjection.hellocountries;
 
 public class HelloWorld {
   private String message;

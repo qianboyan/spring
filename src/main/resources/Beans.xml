@@ -5,8 +5,32 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id = "helloWorld" class = "xmlinjection.HelloWorld">
+    <bean id = "helloWorld" class = "xmlinjection.hellocountries.HelloWorld">
         <property name = "message" value = "Hello World!"/>
     </bean>
+
+    <bean id = "helloWorldSingleton" class = "xmlinjection.hellocountries.HelloWorldSingleton" scope = "singleton"> <!--scope = "prototype"-->
+        <property name = "message" value = "Hello World from singleton!"/>
+    </bean>
+
+    <bean id = "lifeCycle" class = "xmlinjection.hellocountries.LifeCycle" init-method = "init" destroy-method = "deinit">
+        <property name = "message" value = "still live"/>
+    </bean>
+
+    <bean id = "beanTeamplate" abstract = "true">
+        <property name = "message" value = "Hello World!"/>
+        <property name = "message1" value = "Hello Second World from template!"/>
+        <property name = "message2" value = "From template!"/>
+    </bean>
+
+    <bean id ="helloGermany" class = "xmlinjection.hellocountries.HelloGermany" parent = "helloWorld">
+        <property name = "message1" value = "Hello Germany!"/>
+        <property name = "message3" value = "Servus Deutschland!"/>
+    </bean>
+
+    <bean id ="helloFrance" class = "xmlinjection.hellocountries.HelloFrance" parent = "beanTeamplate">
+    </bean>
+
+    <bean class = "xmlinjection.hellocountries.InitHelloWorld" />
 
 </beans>
