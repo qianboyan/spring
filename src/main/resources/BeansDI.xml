@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id = "textEditor" class = "xmlinjection.dependencyinject.TextEditor">
+        <constructor-arg ref = "spellChecker"/>
+    </bean>
+
+    <bean id = "textEditorNoConstructor" class = "xmlinjection.dependencyinject.TextEditorNoConstructor">
+        <property name = "spellChecker" ref = "spellChecker"/>
+        <property name = "printer">
+            <bean id = "printer" class = "xmlinjection.dependencyinject.Printer"/>
+        </property>
+    </bean>
+
+    <bean id = "spellChecker" class = "xmlinjection.dependencyinject.SpellChecker">
+        <constructor-arg type = "java.lang.String" value = "Deutsch"/>
+    </bean>
+
+</beans>

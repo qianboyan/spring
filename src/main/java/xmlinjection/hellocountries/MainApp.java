@@ -1,12 +1,8 @@
-package xmlinjection;
+package xmlinjection.hellocountries;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import xmlinjection.hellocountries.HelloFrance;
-import xmlinjection.hellocountries.HelloGermany;
-import xmlinjection.hellocountries.HelloWorld;
-import xmlinjection.hellocountries.HelloWorldSingleton;
-import xmlinjection.hellocountries.LifeCycle;
 
 public class MainApp {
   public static void main(String[] args) {
