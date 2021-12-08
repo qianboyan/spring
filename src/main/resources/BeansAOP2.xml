@@ -8,11 +8,10 @@
    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 
     <aop:aspectj-autoproxy/>
+
     <bean id = "student" class = "aop.annotationaop.Student">
         <property name = "name"  value = "Zara" />
         <property name = "age"  value = "11"/>
     </bean>
-
     <bean id = "log" class = "aop.annotationaop.Log"/>
-
 </beans>

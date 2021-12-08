@@ -14,6 +14,7 @@
             <aop:after pointcut-ref = "selectAll" method = "afterAdvice"/>
             <aop:after-returning pointcut-ref = "selectAll" returning = "retVal" method = "afterReturningAdvice"/>
             <aop:after-throwing pointcut-ref = "selectAll" throwing = "ex" method = "AfterThrowingAdvice"/>
+            <aop:around pointcut-ref = "selectAll" method="aroundAdvice"/>
         </aop:aspect>
     </aop:config>
 

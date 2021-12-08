@@ -1,6 +1,5 @@
-package aop.annotationaop;
+package aop.javaaop;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -12,7 +11,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class Log {
-  @Pointcut("execution(* aop.annotationaop.*.*(..))")
+  @Pointcut("execution(* aop.javaaop.*.*(..))")
   private void selectAll(){}
 
   @Before("selectAll()")
@@ -26,18 +25,16 @@ public class Log {
   }
 
   @AfterReturning(pointcut = "selectAll()", returning = "retVal")
-  public void doAfterReturningTask(JoinPoint jp, Object retVal){
-    System.out.println("Method Signature: "  + jp.getSignature());
-    System.out.println("Returning:" + retVal.toString() );
+  public void doAfterReturningTask(Object retVal){
+    System.out.println("Returning from afterReturning.");
   }
 
   @AfterThrowing(pointcut = "selectAll()", throwing = "ex")
-  public void doAfterThrowingTask(JoinPoint jp, Exception ex){
-    System.out.println("Method Signature: "  + jp.getSignature());
-    System.out.println("Exception: " + ex);
+  public void doAfterThrowingTask(Exception ex){
+    System.out.println("throwing something");
   }
 
-  @Around("selectAll()")
+  // @Around("selectAll()")
   public String doAroundTask(ProceedingJoinPoint jp) throws Throwable{
     System.out.println("Around advice");
     Object[] args = jp.getArgs();
